@@ -32,7 +32,7 @@
     </ion-list>
 
     <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="signIn()">
-      Criar conta
+      Entrar
     </button>
   </form>
 
@@ -42,6 +42,11 @@
 
   <button ion-button block clear (click)="createAccount()">
     Criar conta
+  </button>
+
+  <button ion-button block icon-left color="danger" margin-top (click)="signInWithGoogle()">
+    <ion-icon name="logo-google"></ion-icon>
+    Entrar com o Google
   </button>
 
 </ion-content>

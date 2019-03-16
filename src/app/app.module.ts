@@ -1,4 +1,7 @@
-import { AngularFireAuth } from 'angularfire2/auth';
+import { SignupPage } from './../pages/signup/signup';
+import { ResetpasswordPage } from './../pages/resetpassword/resetpassword';
+import { SigninPage } from './../pages/signin/signin';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,20 +15,25 @@ import { AuthService } from '../providers/auth.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { GooglePlus } from '@ionic-native/google-plus';
+
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDKm7nJ_kidjzco51NeAGhxdptl5csXxAk",
-    authDomain: "ionicauthlogin-687a3.firebaseapp.com",
-    databaseURL: "https://ionicauthlogin-687a3.firebaseio.com",
-    projectId: "ionicauthlogin-687a3",
-    storageBucket: "ionicauthlogin-687a3.appspot.com",
-    messagingSenderId: "82813644702"
+  apiKey: "AIzaSyATTWw-00ssY4Tk9GqRN8Z336PJaVAKCvk",
+  authDomain: "ionic-auth-d57bb.firebaseapp.com",
+  databaseURL: "https://ionic-auth-d57bb.firebaseio.com",
+  projectId: "ionic-auth-d57bb",
+  storageBucket: "ionic-auth-d57bb.appspot.com",
+  messagingSenderId: "101387271131"
 };
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    SigninPage,
+    ResetpasswordPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -36,13 +44,17 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    SigninPage,
+    ResetpasswordPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    GooglePlus
   ]
 })
 export class AppModule {}

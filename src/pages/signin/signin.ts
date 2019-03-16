@@ -6,7 +6,6 @@ import { User } from '../../models/user.model';
 import { NgForm } from '@angular/forms';
 import { SignupPage } from '../signup/signup';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
-import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 
 @Component({
@@ -52,6 +51,17 @@ export class SigninPage {
           toast.present();
         });
     }
+  }
+
+  signInWithGoogle() {
+    this.authService.signInWithGoogle()
+        .then(() => {
+          this.navCtrl.setRoot(HomePage);
+        })
+        .catch((error: any) => {
+          this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar login!' })
+              .present();
+        });
   }
 
 }

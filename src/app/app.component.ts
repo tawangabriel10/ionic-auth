@@ -13,6 +13,7 @@ export class MyApp {
   rootPage:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, afAuth: AngularFireAuth) {
+    // IR PARA A HOMEPAGE AUTOMATICAMENTE CASO O USUARIO JÀ ESTEJA LOGADO
     const authObserver =  afAuth.authState
           .subscribe((user) => {
             if (user) {
