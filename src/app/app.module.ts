@@ -16,7 +16,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { GooglePlus } from '@ionic-native/google-plus';
-
+import { Facebook } from '@ionic-native/facebook';
 
 const firebaseConfig = {
   apiKey: "AIzaSyATTWw-00ssY4Tk9GqRN8Z336PJaVAKCvk",
@@ -54,7 +54,8 @@ const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    GooglePlus
+    GooglePlus,
+    Facebook
   ]
 })
 export class AppModule {}

@@ -86,4 +86,10 @@
         <variable name="REVERSED_CLIENT_ID" value="101387271131-69hvo5qevhhlg4btjl066tp3sh1udhfb.apps.googleusercontent.com" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
     </plugin>
+    <plugin name="cordova-plugin-facebook4" spec="^4.2.1">
+        <variable name="APP_ID" value="1135753636604623" />
+        <variable name="APP_NAME" value="Ionic Auth" />
+        <variable name="FACEBOOK_HYBRID_APP_EVENTS" value="false" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.40.0" />
+    </plugin>
 </widget>

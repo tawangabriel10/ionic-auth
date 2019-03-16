@@ -1,3 +1,4 @@
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { User } from './../models/user.model';
 import { Injectable } from '@angular/core';
@@ -11,7 +12,11 @@ export class AuthService {
 
   user: Observable<firebase.User>;
 
-  constructor(private angularFireAuth: AngularFireAuth, private googlePlus: GooglePlus) {
+  constructor(
+    private angularFireAuth: AngularFireAuth, 
+    private googlePlus: GooglePlus,
+    private facebook: Facebook
+  ) {
     this.user = angularFireAuth.authState;
   }
 
@@ -37,6 +42,13 @@ export class AuthService {
     });
   }
 
+  signWithFacebook() {
+    return this.facebook.login(['public_profile', 'email'])
+        .then((res: FacebookLoginResponse) => {
+          return this.angularFireAuth.auth.signInWithCredential(firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken));
+        });
+  }
+
   signOut() {
     if (this.angularFireAuth.auth.currentUser.providerData.length) {
       for (var i = 0; i < this.angularFireAuth.auth.currentUser.providerData.length; i++) {
@@ -44,6 +56,11 @@ export class AuthService {
 
         if (provider.providerId == firebase.auth.GoogleAuthProvider.PROVIDER_ID) {
           return this.googlePlus.disconnect()
+              .then(() => {
+                return this.signOutFirebase();
+              });
+        } else if (provider.providerId == firebase.auth.FacebookAuthProvider.PROVIDER_ID) {
+          return this.facebook.logout()
               .then(() => {
                 return this.signOutFirebase();
               });

@@ -64,4 +64,15 @@ export class SigninPage {
         });
   }
 
+  signInWithFacebook() {
+    this.authService.signWithFacebook()
+        .then(() => {
+          this.navCtrl.setRoot(HomePage);
+        })
+        .catch((error: any) => {
+          this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar login!' })
+              .present();
+        });
+  }
+
 }
