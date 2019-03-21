@@ -14,9 +14,10 @@
       <ion-card-title>
         Bem vindo {{ displayName }}
       </ion-card-title>
-      <p>
-        Esse app é um exemplo de login com Ionic e Firebase
-      </p>
+      
+      <ion-list>
+        <ion-item *ngFor="let not of listNotification">{{ not }}</ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 
