@@ -17,7 +17,7 @@ export class HomePage {
     private authService: AuthService,
     private afAuth: AngularFireAuth
   ) {
-    const authObserver = afAuth.authState.subscribe(user => {
+    const authObserver = this.afAuth.authState.subscribe(user => {
       this.displayName = '';
       this.imgUrl = '';
 
