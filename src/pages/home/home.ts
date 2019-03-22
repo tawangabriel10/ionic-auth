@@ -1,3 +1,4 @@
+import { NotificationsService } from './../../providers/notifications.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { SigninPage } from './../signin/signin';
 import { AuthService } from './../../providers/auth.service';
@@ -11,11 +12,14 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
   displayName: string;
   imgUrl: String;
+
+  listNotification: string[] = [];
   
   constructor(
     public navCtrl: NavController, 
     private authService: AuthService,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private notificationsService: NotificationsService
   ) {
     const authObserver = this.afAuth.authState.subscribe(user => {
       this.displayName = '';
@@ -28,6 +32,8 @@ export class HomePage {
         authObserver.unsubscribe();
       }
     });
+
+    this.getNotifications();
   }
 
   signOut() {
@@ -38,6 +44,15 @@ export class HomePage {
       .catch((error: any) => {
         console.error(error);
       });
+  }
+
+  private getNotifications(): void {
+    this.notificationsService.observerNotification()
+        .subscribe((notification: any) => {
+
+          console.log(notification);
+          this.listNotification.push(JSON.stringify(notification));
+        });
   }
 
 }

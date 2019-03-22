@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "101387271131",
+    "firebase_url": "https://ionic-auth-d57bb.firebaseio.com",
+    "project_id": "ionic-auth-d57bb",
+    "storage_bucket": "ionic-auth-d57bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101387271131:android:a3f59e7cfe6c7cbd",
+        "android_client_info": {
+          "package_name": "io.tawan.gabriel.ionic.auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101387271131-pn9sfq767d8evk8mr16bgo2bpvc7d1c9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.tawan.gabriel.ionic.auth",
+            "certificate_hash": "1b2781bb7700c6512233cb3fc6279c5370eed65e"
+          }
+        },
+        {
+          "client_id": "101387271131-69hvo5qevhhlg4btjl066tp3sh1udhfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1swzGP86elFxsVkAd0JdDarLNiw3V3Z0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101387271131-69hvo5qevhhlg4btjl066tp3sh1udhfb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

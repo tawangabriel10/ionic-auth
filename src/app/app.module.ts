@@ -5,18 +5,20 @@ import { SigninPage } from './../pages/signin/signin';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { AuthService } from '../providers/auth.service';
+import { HomePage } from '../pages/home/home';
+import { MyApp } from './app.component';
+import { NotificationsService } from '../providers/notifications.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { GooglePlus } from '@ionic-native/google-plus';
-import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { FCM } from '@ionic-native/fcm/ngx'
 
 const firebaseConfig = {
   apiKey: "AIzaSyATTWw-00ssY4Tk9GqRN8Z336PJaVAKCvk",
@@ -55,7 +57,9 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     GooglePlus,
-    Facebook
+    Facebook,
+    FCM,
+    NotificationsService
   ]
 })
 export class AppModule {}

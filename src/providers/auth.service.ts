@@ -1,11 +1,13 @@
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-import { GooglePlus } from '@ionic-native/google-plus';
+import { NotificationsService } from './notifications.service';
 import { User } from './../models/user.model';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
+
 import * as firebase from 'firebase/app'; 
 
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
 @Injectable()
 export class AuthService {
@@ -15,7 +17,8 @@ export class AuthService {
   constructor(
     private angularFireAuth: AngularFireAuth, 
     private googlePlus: GooglePlus,
-    private facebook: Facebook
+    private facebook: Facebook,
+    private notificationsService: NotificationsService
   ) {
     this.user = angularFireAuth.authState;
   }
